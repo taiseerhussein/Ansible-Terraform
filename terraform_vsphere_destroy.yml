@@ -1,0 +1,10 @@
+---
+- name: Update VM on vSphere using Terraform
+  hosts: localhost
+  gather_facts: false
+
+  vars:
+    terraform_state: "absent"
+
+  roles:
+    - shadowman_terraform_vsphere

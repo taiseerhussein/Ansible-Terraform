@@ -1,0 +1,17 @@
+---
+- name: Update VM on vSphere using Terraform
+  hosts: localhost
+  gather_facts: false
+
+  vars:
+    terraform_state: "present"
+
+  roles:
+    - shadowman_terraform_vsphere
+
+- name: Perform hostname Set and reset agent to get FQDN on Linux
+  hosts: just_created
+  gather_facts: false
+
+  roles:
+    - shadowman_hostnameset
