@@ -84,6 +84,13 @@
           password: "{{ pah_pass }}"
       when: terraform_state == "absent"
 
+    - name: Template main Terraform manifest if deleting to add required fields
+      ansible.builtin.template:
+        src: templates/azuremain.tf
+        mode: '755'
+        dest: /{{ terraform_working_dir }}/{{ tf_build }}/main.tf
+      when: terraform_state == "absent"
+
     - name: Perform initial Check of VMs to see what will be removed
       cloud.terraform.terraform:
         project_path: "{{ terraform_working_dir }}{{ tf_build }}"
