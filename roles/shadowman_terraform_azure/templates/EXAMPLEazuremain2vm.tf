@@ -113,7 +113,7 @@ resource "azurerm_linux_virtual_machine" "app-server" {
 
   os_disk {
     name                 = "shadowman-terraform-os-disk"
-    storage_account_type = "Standard_RAGRS"
+    storage_account_type = "Standard_LRS"
     caching              = "ReadWrite"
   }
 
@@ -179,7 +179,7 @@ resource "azurerm_linux_virtual_machine" "app-server2" {
 
   os_disk {
     name                 = "shadowman-terraform-os-disk2"
-    storage_account_type = "Standard_RAGRS"
+    storage_account_type = "Standard_LRS"
     caching              = "ReadWrite"
   }
 
