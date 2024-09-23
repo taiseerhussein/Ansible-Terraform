@@ -2,7 +2,7 @@ provider "azurerm" {
   features {}
 }
 
-resource "azurerm_marketplace_agreement" "barracuda" {
+resource "azurerm_marketplace_agreement" "redhat" {
   publisher = "redhat"
   offer     = "rhel-byos"
   plan      = "rhel-lvm94"
