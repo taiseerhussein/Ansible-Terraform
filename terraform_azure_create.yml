@@ -1,0 +1,10 @@
+---
+- name: Update VM on Azure using Terraform
+  hosts: localhost
+  gather_facts: false
+
+  vars:
+    terraform_state: "present"
+
+  roles:
+    - shadowman_terraform_azure
