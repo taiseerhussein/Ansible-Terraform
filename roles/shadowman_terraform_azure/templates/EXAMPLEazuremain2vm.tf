@@ -2,11 +2,11 @@ provider "azurerm" {
   features {}
 }
 
-resource "azurerm_marketplace_agreement" "redhat" {
-  publisher = "redhat"
-  offer     = "rhel-byos"
-  plan      = "rhel-lvm94"
-}
+# resource "azurerm_marketplace_agreement" "redhat" {
+#   publisher = "redhat"
+#   offer     = "rhel-byos"
+#   plan      = "rhel-lvm94"
+# }
 
 resource "azurerm_resource_group" "tfrg" {
   name     = "shadowman-terraform-rg"
