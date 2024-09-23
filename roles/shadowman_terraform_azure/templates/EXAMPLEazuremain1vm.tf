@@ -70,10 +70,10 @@ resource "azurerm_network_security_group" "tfnsg" {
   }
 }
 
-resource "azurerm_network_interface" "trni" {
+resource "azurerm_network_interface" "tfni" {
   name                = "shadowman-terraform-nic"
   location            = azurerm_resource_group.tfrg.location
-  resource_group_name = azurerm_resource_group.trfg.name
+  resource_group_name = azurerm_resource_group.tfrg.name
 
   ip_configuration {
     name                          = "shadowman-terraform-nic-ip-config"
