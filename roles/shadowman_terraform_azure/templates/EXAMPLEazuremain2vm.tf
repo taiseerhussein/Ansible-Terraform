@@ -197,5 +197,5 @@ resource "azurerm_linux_virtual_machine" "app-server2" {
 }
 
 output "app-server2" {
-  value = azurerm_linux_virtual_machine.app-server.name
+  value = azurerm_linux_virtual_machine.app-server2.name
 }
