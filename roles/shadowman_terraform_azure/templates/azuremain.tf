@@ -133,3 +133,69 @@ resource "azurerm_linux_virtual_machine" "app-server" {
 output "app-server" {
   value = azurerm_linux_virtual_machine.app-server.name
 }
+
+
+resource "azurerm_public_ip" "tfpubip2" {
+  name                = "shadowman-terraform-public-ip2"
+  location            = azurerm_resource_group.tfrg.location
+  resource_group_name = azurerm_resource_group.tfrg.name
+  allocation_method   = "Static"
+}
+
+resource "azurerm_network_interface" "tfni2" {
+  name                = "shadowman-terraform-nic2"
+  location            = azurerm_resource_group.tfrg.location
+  resource_group_name = azurerm_resource_group.tfrg.name
+
+  ip_configuration {
+    name                          = "shadowman-terraform-nic-ip-config2"
+    subnet_id                     = azurerm_subnet.tfsubnet.id
+    private_ip_address_allocation = "Dynamic"
+    public_ip_address_id          = azurerm_public_ip.tfpubip2.id
+  }
+}
+
+resource "azurerm_network_interface_security_group_association" "tfnga" {
+  network_interface_id      = azurerm_network_interface.tfni2.id
+  network_security_group_id = azurerm_network_security_group.tfnsg.id
+}
+
+resource "azurerm_linux_virtual_machine" "app-server2" {
+  name                            = "appserver2.shadowman.dev"
+  location                        = azurerm_resource_group.tfrg.location
+  resource_group_name             = azurerm_resource_group.tfrg.name
+  network_interface_ids           = [azurerm_network_interface.tfni2.id]
+  size                            = "Standard_B1s"
+  admin_username                  = "{{ azureuser }}"
+  admin_password                  = "{{ azurepassword }}"
+  disable_password_authentication = false
+
+  source_image_reference {
+    publisher = "RedHat"
+    offer     = "rhel-byos"
+    sku       = "rhel-lvm94"
+    version   = "latest"
+  }
+
+  plan {
+    name      = "rhel-lvm94"
+    product   = "rhel-byos"
+    publisher = "redhat"
+  }
+
+  os_disk {
+    name                 = "shadowman-terraform-os-disk2"
+    storage_account_type = "Standard_LRS"
+    caching              = "ReadWrite"
+  }
+
+  tags = {
+    environment      = "dev"
+    owner            = "shadowman"
+    operating_system = "RHEL"
+  }
+}
+
+output "app-server2" {
+  value = azurerm_linux_virtual_machine.app-server.name
+}
