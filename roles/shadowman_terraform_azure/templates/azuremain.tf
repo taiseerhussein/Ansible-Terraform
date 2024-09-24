@@ -155,7 +155,7 @@ resource "azurerm_network_interface" "tfni2" {
   }
 }
 
-resource "azurerm_network_interface_security_group_association" "tfnga" {
+resource "azurerm_network_interface_security_group_association" "tfnga2" {
   network_interface_id      = azurerm_network_interface.tfni2.id
   network_security_group_id = azurerm_network_security_group.tfnsg.id
 }
