@@ -95,7 +95,7 @@ resource "aws_security_group" "web-pub-sg" {
 }
 resource "aws_instance" "app-server" {
   instance_type = "t2.micro"
-  ami           = "ami-023c6ad2a87d58f18"
+  ami           = "ami-04f8d0dc7c0ac7a0e"
   network_interface {
     network_interface_id = aws_network_interface.ansible-nic.id
     device_index         = 0

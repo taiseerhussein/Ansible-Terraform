@@ -5,7 +5,7 @@ provider "azurerm" {
 # resource "azurerm_marketplace_agreement" "redhat" {
 #   publisher = "redhat"
 #   offer     = "rhel-byos"
-#   plan      = "rhel-lvm94"
+#   plan      = "rhel-lvm95"
 # }
 
 resource "azurerm_resource_group" "tfrg" {
@@ -107,12 +107,12 @@ resource "azurerm_linux_virtual_machine" "app-server" {
   source_image_reference {
     publisher = "RedHat"
     offer     = "rhel-byos"
-    sku       = "rhel-lvm94"
+    sku       = "rhel-lvm95"
     version   = "latest"
   }
 
   plan {
-    name      = "rhel-lvm94"
+    name      = "rhel-lvm95"
     product   = "rhel-byos"
     publisher = "redhat"
   }
