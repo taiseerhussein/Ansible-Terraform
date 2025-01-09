@@ -55,8 +55,8 @@ resource "vsphere_virtual_machine" "server1" {
 
   tags = [
     "urn:vmomi:InventoryServiceTag:008d5941-409f-42bf-af67-69e513e4f3a3:GLOBAL",
-    "urn:vmomi:InventoryServiceTag:008d5941-409f-42bf-af67-69e513e4f3a3:GLOBAL",
-    "urn:vmomi:InventoryServiceTag:008d5941-409f-42bf-af67-69e513e4f3a3:GLOBAL"
+    "urn:vmomi:InventoryServiceTag:4a22652c-1463-424a-9353-878197be7088:GLOBAL",
+    "urn:vmomi:InventoryServiceTag:8921ca91-396b-4458-82b4-2221e5b9ce3c:GLOBAL"
   ]
 
   wait_for_guest_net_timeout = 10
@@ -97,8 +97,8 @@ resource "vsphere_virtual_machine" "server2" {
 
   tags = [
     "urn:vmomi:InventoryServiceTag:008d5941-409f-42bf-af67-69e513e4f3a3:GLOBAL",
-    "urn:vmomi:InventoryServiceTag:008d5941-409f-42bf-af67-69e513e4f3a3:GLOBAL",
-    "urn:vmomi:InventoryServiceTag:37e34eb0-78c8-4167-8bc1-a30c4c2bc513:GLOBAL"
+    "urn:vmomi:InventoryServiceTag:4a22652c-1463-424a-9353-878197be7088:GLOBAL",
+    "urn:vmomi:InventoryServiceTag:8921ca91-396b-4458-82b4-2221e5b9ce3c:GLOBAL"
   ]
 
   wait_for_guest_net_timeout = 10
