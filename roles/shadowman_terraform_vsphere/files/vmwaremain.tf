@@ -56,6 +56,7 @@ resource "vsphere_virtual_machine" "server1" {
   tags = [
     "urn:vmomi:InventoryServiceTag:008d5941-409f-42bf-af67-69e513e4f3a3:GLOBAL",
     "urn:vmomi:InventoryServiceTag:4a22652c-1463-424a-9353-878197be7088:GLOBAL",
+    "urn:vmomi:InventoryServiceTag:55432059-1bb8-4949-81f3-8c44e0747845:GLOBAL",
     "urn:vmomi:InventoryServiceTag:8921ca91-396b-4458-82b4-2221e5b9ce3c:GLOBAL"
   ]
 
@@ -98,6 +99,7 @@ resource "vsphere_virtual_machine" "server2" {
   tags = [
     "urn:vmomi:InventoryServiceTag:008d5941-409f-42bf-af67-69e513e4f3a3:GLOBAL",
     "urn:vmomi:InventoryServiceTag:4a22652c-1463-424a-9353-878197be7088:GLOBAL",
+    "urn:vmomi:InventoryServiceTag:55432059-1bb8-4949-81f3-8c44e0747845:GLOBAL",
     "urn:vmomi:InventoryServiceTag:8921ca91-396b-4458-82b4-2221e5b9ce3c:GLOBAL"
   ]
 
@@ -140,6 +142,7 @@ resource "vsphere_virtual_machine" "server3" {
   tags = [
     "urn:vmomi:InventoryServiceTag:008d5941-409f-42bf-af67-69e513e4f3a3:GLOBAL",
     "urn:vmomi:InventoryServiceTag:4a22652c-1463-424a-9353-878197be7088:GLOBAL",
+    "urn:vmomi:InventoryServiceTag:55432059-1bb8-4949-81f3-8c44e0747845:GLOBAL",
     "urn:vmomi:InventoryServiceTag:8921ca91-396b-4458-82b4-2221e5b9ce3c:GLOBAL"
   ]
 
