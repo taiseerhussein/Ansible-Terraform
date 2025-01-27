@@ -41,7 +41,7 @@ resource "vsphere_virtual_machine" "server1" {
   name             = "server1.shadowman.dev"
   resource_pool_id = data.vsphere_compute_cluster.cluster.resource_pool_id
   datastore_id     = data.vsphere_datastore.datastore.id
-  folder           = "Discovered virtual machine"
+  folder           = "Lab virtual machine"
   firmware         = data.vsphere_virtual_machine.template7.firmware
   scsi_type        = data.vsphere_virtual_machine.template7.scsi_type
 
@@ -84,7 +84,7 @@ resource "vsphere_virtual_machine" "server2" {
   name             = "server2.shadowman.dev"
   resource_pool_id = data.vsphere_compute_cluster.cluster.resource_pool_id
   datastore_id     = data.vsphere_datastore.datastore.id
-  folder           = "Discovered virtual machine"
+  folder           = "Lab virtual machine"
   firmware         = data.vsphere_virtual_machine.template8.firmware
   scsi_type        = data.vsphere_virtual_machine.template8.scsi_type
 
