@@ -18,7 +18,7 @@ data "vsphere_datastore" "datastore" {
 }
 
 data "vsphere_network" "network" {
-  name          = "VM Network"
+  name          = "LAN02"
   datacenter_id = data.vsphere_datacenter.dc.id
 }
 
