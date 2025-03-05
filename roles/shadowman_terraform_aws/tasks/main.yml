@@ -1,10 +1,10 @@
 ---
 - name: Clone Terraform Repo
   ansible.builtin.git:
-    repo: 'https://github.com/taiseerhussein/Ansible-Terraform-AWS.git'
+    repo: 'git@github.com:taiseerhussein/Ansible-Terraform-AWS.git'
     version: main
     accept_newhostkey: true
-    # key_file: "{{ cert_key_file }}"
+    key_file: "{{ cert_key_file }}"
     dest: "{{ terraform_working_dir }}"
 
 - name: Creating Git Project
