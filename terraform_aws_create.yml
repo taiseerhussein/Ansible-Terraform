@@ -5,6 +5,5 @@
 
   vars:
     terraform_state: "present"
-
   roles:
     - shadowman_terraform_aws
