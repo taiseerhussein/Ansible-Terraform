@@ -1,8 +1,4 @@
 ---
-- name: Show the key
-  ansible.builtin.debug: 
-    msg: "{{ cert_key_file }}"
-
 - name: Clone Terraform Repo
   ansible.builtin.git:
     repo: 'https://{{ username }}:{{ mytoken }}@github.com/taiseerhussein/Ansible-Terraform-AWS.git'
@@ -104,13 +100,13 @@
         msg: "{{ terraformvmstodelete | json_query('diff.before.values.outputs.*.value') }}"
       when: terraform_state == "absent"
 
-    - name: Unsubscribe VMs
-      ansible.controller.workflow_launch:
-        workflow_template: "Unsubscribe VMs for Terraform"
-        extra_vars:
-          vm_name: "{{ terraformvmstodelete | json_query('diff.before.values.outputs.*.value') | join(',') }}"
-        wait: true
-      when: terraform_state == "absent"
+    # - name: Unsubscribe VMs
+    #   ansible.controller.workflow_launch:
+    #     workflow_template: "Unsubscribe VMs for Terraform"
+    #     extra_vars:
+    #       vm_name: "{{ terraformvmstodelete | json_query('diff.before.values.outputs.*.value') | join(',') }}"
+    #     wait: true
+    #   when: terraform_state == "absent"
 
     - name: Initialize Terraform Provider
       cloud.terraform.terraform:
@@ -182,23 +178,23 @@
         src: "{{ terraform_working_dir }}/remove_vm_survey.json"
       register: slurpfile
 
-    - name: Creating Removal Job Template with Survey
-      ansible.controller.job_template:
-        name: Remove Terraform Manifest AWS
-        organization: Default
-        job_type: run
-        inventory: Demo Inventory
-        project: aws-tf
-        execution_environment: tr
-        playbook: terraform_aws_destroy.yml
-        credentials:
-          - aws-ec2
-          - aws-ft-keys
-        state: present
-        extra_vars:
-          pah_pass: "{{ lookup('env', 'PAH_PASS') }}"
-          cert_key_file: "{{ lookup('env', 'CERT_KYE_FILE') }}"
-          mytoken: "{{ lookup('env', 'GIT_TOKEN') }}"
-          username: "{{ lookup('env', 'GIT_USERNAME') }}" 
-        survey_spec: "{{ slurpfile['content'] | b64decode }}"
-        survey_enabled: true
+    # - name: Creating Removal Job Template with Survey
+    #   ansible.controller.job_template:
+    #     name: Remove Terraform Manifest AWS
+    #     organization: Default
+    #     job_type: run
+    #     inventory: Demo Inventory
+    #     project: aws-tf
+    #     execution_environment: tr
+    #     playbook: terraform_aws_destroy.yml
+    #     credentials:
+    #       - aws-ec2
+    #       - aws-ft-keys
+    #     state: present
+    #     extra_vars:
+    #       pah_pass: "{{ lookup('env', 'PAH_PASS') }}"
+    #       cert_key_file: "{{ lookup('env', 'CERT_KYE_FILE') }}"
+    #       mytoken: "{{ lookup('env', 'GIT_TOKEN') }}"
+    #       username: "{{ lookup('env', 'GIT_USERNAME') }}" 
+    #     survey_spec: "{{ slurpfile['content'] | b64decode }}"
+    #     survey_enabled: true
