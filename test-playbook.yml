@@ -23,5 +23,5 @@
           cert_key_file: "{{ lookup('env', 'CERT_KYE_FILE') }}"
           mytoken: "{{ lookup('env', 'GIT_TOKEN') }}"
           username: "{{ lookup('env', 'GIT_USERNAME') }}" 
-        survey_spec: "{{ slurpfile['content'] | b64decode }}"
-        survey_enabled: true
+       # survey_spec: "{{ slurpfile['content'] | b64decode }}"
+       # survey_enabled: true
