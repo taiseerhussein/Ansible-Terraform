@@ -7,6 +7,10 @@
     key_file: "{{ cert_key_file }}"
     dest: "{{ terraform_working_dir }}"
 
+- name: Show the key
+  ansible.builtin.debug: 
+    msg: "{{ cert_key_file }}"
+      
 - name: Creating Git Project
   when: terraform_state == "present"
   block:
