@@ -5,7 +5,7 @@
 
 - name: Clone Terraform Repo
   ansible.builtin.git:
-    repo: 'git@github.com:taiseerhussein/Ansible-Terraform-AWS.git'
+    repo: 'https://{{ username }}:{{ mytoken }}@github.com/taiseerhussein/Ansible-Terraform-AWS.git'
     version: main
     accept_newhostkey: true
     key_file: "{{ cert_key_file }}"
@@ -155,7 +155,7 @@
       when: terraform_state == "absent"
 
     - name: Update git repo with terraform files
-      ansible.builtin.shell: git add -A && git commit -m "Updating Terraform Projects" && git config --global core.sshCommand 'ssh -i {{ cert_key_file }} -F /dev/null' && git push
+      ansible.builtin.shell: git add -A && git commit -m "Updating Terraform Projects" && git push
       args:
         chdir: "{{ terraform_working_dir }}"
       environment:
