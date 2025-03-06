@@ -149,7 +149,7 @@
       when: terraform_state == "absent"
 
     - name: Update git repo with terraform files
-      ansible.builtin.shell: git add -A && git commit -m "Updating Terraform Projects" && git config --global core.sshCommand 'ssh -i {{ cert_key_file }} -F /dev/null' && git push
+      ansible.builtin.shell: git add -A && git commit -m "Updating Terraform Projects"  && git push
       args:
         chdir: "{{ terraform_working_dir }}"
       environment:
