@@ -1,7 +1,7 @@
 ---
 - name: Show the key
   ansible.builtin.debug: 
-    msg: "{{ test_me }}"
+    msg: "{{ cert_key_file }}"
 
 - name: Clone Terraform Repo
   ansible.builtin.git:
