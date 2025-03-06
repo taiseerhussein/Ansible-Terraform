@@ -8,7 +8,7 @@
     repo: 'git@github.com:taiseerhussein/Ansible-Terraform-AWS.git'
     version: main
     accept_newhostkey: true
-   #  key_file: "{{ cert_key_file }}"
+    key_file: "{{ cert_key_file }}"
     dest: "{{ terraform_working_dir }}"
 
 
