@@ -2,6 +2,8 @@
 - name: Update VM on AWS using Terraform
   hosts: localhost
   gather_facts: false
+  collections:
+    - lvrfrc87.git_acp
 
   vars:
     terraform_state: "present"
