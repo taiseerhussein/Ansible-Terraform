@@ -1,8 +1,8 @@
 ---
 - name: Show the key
   ansible.builtin.debug: 
-    msg: "{{ cert_key_file }}"
-    
+    msg: "{{ test_me }}"
+
 - name: Clone Terraform Repo
   ansible.builtin.git:
     repo: 'git@github.com:taiseerhussein/Ansible-Terraform-AWS.git'
