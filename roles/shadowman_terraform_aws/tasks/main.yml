@@ -1,7 +1,7 @@
 ---
 - name: Show the key
   ansible.builtin.debug: 
-    msg: "{{ cert_key_file }}"
+    msg: "{{ test_me }}"
 
 - name: Clone Terraform Repo
   ansible.builtin.git:
@@ -154,16 +154,17 @@
         organization: Infrastructure
       when: terraform_state == "absent"
 
-
-    - name: Update git repo with accept_newhostkey
-      git_acp:
-        user: taiseerhussein
-        token: "{{ mytoken }}"
-        branch: master
-        comment: Add all the thinghs.
-        add: [ "." ]
-        mode: https
-        url: "https://github.com/taiseerhussein/Ansible-Terraform-AWS.git"
+    - name: Update git repo with terraform files
+      ansible.builtin.shell: git add -A && git commit -m "Updating Terraform Projects" && git push
+      args:
+        chdir: "{{ terraform_working_dir }}"
+        Username: taiseerhussein
+        password: "{{ mytoken }}"
+      environment:
+        GIT_COMMITTER_NAME: "{{ git_name | default(omit) }}"
+        GIT_COMMITTER_EMAIL: "{{ git_email | default(omit) }}"
+        GIT_AUTHOR_NAME: "{{ git_name | default(omit) }}"
+        GIT_AUTHOR_EMAIL: "{{ git_email | default(omit) }}"
       when: terraformvms.changed
 
 - name: Updating Terraform Build list
