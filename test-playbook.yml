@@ -1,6 +1,6 @@
 ---
 - name: Playbook for testing
-  hosts: ec2-34-228-198-43.compute-1.amazonaws.com
+  hosts: localhost
   gather_facts: false
   connection: local
   
