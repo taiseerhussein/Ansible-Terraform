@@ -8,9 +8,9 @@
 
     - name: Creating Removal Job Template with Survey
       ansible.controller.job_template:
-        controller_host: ec2-34-228-198-43.compute-1.amazonaws.com
-        controller_username: admin
-        controller_password: admin
+        # controller_host: ec2-34-228-198-43.compute-1.amazonaws.com
+        # controller_username: admin
+        # controller_password: admin
         name: Remove Terraform Manifest AWS
         organization: Default
         job_type: run
