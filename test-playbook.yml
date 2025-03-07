@@ -20,7 +20,7 @@
         playbook: terraform_aws_destroy.yml
         credentials:
           - aws-ec2
-          - aws-ft-keys
+          - aws-tf-keys
         state: present
         extra_vars:
           pah_pass: "{{ lookup('env', 'PAH_PASS') }}"
