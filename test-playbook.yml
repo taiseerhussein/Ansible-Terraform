@@ -25,7 +25,7 @@
         extra_vars:
           pah_pass: "\"{{ lookup('env', 'PAH_PASS') }}\""
           cert_key_file: "\"{{ lookup('env', 'CERT_KE_FILE') }}\""
-          mytoken: "\"{{ lookup('env', 'GIT_TOKEN') Y}}\""
+          mytoken: "\"{{ lookup('env', 'GIT_TOKEN') }}\""
           username: "\"{{ lookup('env', 'GIT_USERNAME') }}\""
        # survey_spec: "{{ slurpfile['content'] | b64decode }}"
        # survey_enabled: true
