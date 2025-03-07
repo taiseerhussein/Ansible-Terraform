@@ -2,6 +2,7 @@
 - name: Playbook for testing
   hosts: localhost
   gather_facts: false
+  connection: local
   
   tasks:
 
