@@ -145,7 +145,7 @@
       ansible.controller.inventory_source_update:
         name: aws-src
         inventory: aws-ec2
-        organization: default
+        organization: Default
       when: terraform_state == "absent"
 
     - name: Update git repo with terraform files
