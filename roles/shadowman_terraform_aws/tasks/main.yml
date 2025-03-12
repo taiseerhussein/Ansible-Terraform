@@ -141,12 +141,12 @@
         state: absent
       when: terraform_state == "absent"
 
-    - name: Sync AWS Inventory Post Deletion
-      ansible.controller.inventory_source_update:
-        name: aws-src
-        inventory: aws-ec2
-        organization: Default
-      when: terraform_state == "absent"
+    # - name: Sync AWS Inventory Post Deletion
+    #   ansible.controller.inventory_source_update:
+    #     name: aws-src
+    #     inventory: aws-ec2
+    #     organization: Default
+    #   when: terraform_state == "absent"
 
     - name: Update git repo with terraform files
       ansible.builtin.shell: git add -A && git commit -m "Updating Terraform Projects" && git push
