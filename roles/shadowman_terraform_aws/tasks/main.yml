@@ -6,9 +6,7 @@
     accept_newhostkey: true
     key_file: "{{ cert_key_file }}"
     dest: "{{ terraform_working_dir }}"
-
-
-      
+  
 - name: Creating Git Project
   when: terraform_state == "present"
   block:
@@ -178,23 +176,4 @@
         src: "{{ terraform_working_dir }}/remove_vm_survey.json"
       register: slurpfile
 
-    - name: Creating Removal Job Template with Survey
-      ansible.controller.job_template:
-        name: Remove Terraform Manifest AWS
-        organization: Default
-        job_type: run
-        inventory: Demo Inventory
-        project: aws-tf
-        execution_environment: tr
-        playbook: terraform_aws_destroy.yml
-        credentials:
-          - aws-ec2
-          - aws-ft-keys
-        state: present
-        extra_vars:
-          pah_pass: "\"{{ lookup('env', 'PAH_PASS') }}\""
-          cert_key_file: "\"{{ lookup('env', 'CERT_KE_FILE') }}\""
-          mytoken: "\"{{ lookup('env', 'GIT_TOKEN') }}\""
-          username: "\"{{ lookup('env', 'GIT_USERNAME') }}\""
-        survey_spec: "{{ slurpfile['content'] | b64decode }}"
-        survey_enabled: true
+    

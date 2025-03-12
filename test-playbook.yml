@@ -23,7 +23,7 @@
           - aws-tf-keys
         state: present
         extra_vars:
-          - pah_pass: "{{ lookup('env', 'PAH_PASS') }}"
+          pah_pass: "{{ lookup('env', 'PAH_PASS') }}"
           # - cert_key_file: "\"{{ lookup('env', 'CERT_KEY_FILE') }}\""
           # - mytoken: "\"{{ lookup('env', 'GIT_TOKEN') }}\""
           # - username: "\"{{ lookup('env', 'GIT_USERNAME') }}\""
