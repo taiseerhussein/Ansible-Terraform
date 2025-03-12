@@ -143,7 +143,7 @@
 
     - name: Sync AWS Inventory Post Deletion
       ansible.controller.inventory_source_update:
-        name: AWS Production
+        name: aws-src
         inventory: aws-ec2
         organization: default
       when: terraform_state == "absent"
