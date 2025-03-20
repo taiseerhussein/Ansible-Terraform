@@ -5,7 +5,7 @@
   
   
   tasks:
-    - name: Take snapshot of instances in region "{{ ec2_region }}"
+    - name: Take snapshot of instances in region "
       ansible.builtin.include_role:
         name: ec2_node_tools
       vars:
