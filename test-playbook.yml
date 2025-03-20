@@ -5,27 +5,32 @@
   
   
   tasks:
+    - name: Take snapshot of instances in region "{{ ec2_region }}"
+      ansible.builtin.include_role:
+        name: ec2_node_tools
+      vars:
+        ec2_instance_action: "snapshot_create"
 
-    - name: Creating Removal Job Template with Survey
-      ansible.controller.job_template:
-        # controller_host: ec2-34-228-198-43.compute-1.amazonaws.com
-        # controller_username: admin
-        # controller_password: admin
-        name: Remove Terraform Manifest AWS
-        organization: Default
-        job_type: run
-        inventory: Demo Inventory
-        project: aws-tf
-        execution_environment: tr
-        playbook: terraform_aws_destroy.yml
-        credentials:
-          - aws-ec2
-          - aws-tf-keys
-        state: present
-        extra_vars:
-          pah_pass: "{{ lookup('env', 'PAH_PASS') }}"
-          # - cert_key_file: "\"{{ lookup('env', 'CERT_KEY_FILE') }}\""
-          # - mytoken: "\"{{ lookup('env', 'GIT_TOKEN') }}\""
-          # - username: "\"{{ lookup('env', 'GIT_USERNAME') }}\""
-       # survey_spec: "{{ slurpfile['content'] | b64decode }}"
-       # survey_enabled: true
+    # - name: Creating Removal Job Template with Survey
+    #   ansible.controller.job_template:
+    #     # controller_host: ec2-34-228-198-43.compute-1.amazonaws.com
+    #     # controller_username: admin
+    #     # controller_password: admin
+    #     name: Remove Terraform Manifest AWS
+    #     organization: Default
+    #     job_type: run
+    #     inventory: Demo Inventory
+    #     project: aws-tf
+    #     execution_environment: tr
+    #     playbook: terraform_aws_destroy.yml
+    #     credentials:
+    #       - aws-ec2
+    #       - aws-tf-keys
+    #     state: present
+    #     extra_vars:
+    #       pah_pass: "{{ lookup('env', 'PAH_PASS') }}"
+    #       # - cert_key_file: "\"{{ lookup('env', 'CERT_KEY_FILE') }}\""
+    #       # - mytoken: "\"{{ lookup('env', 'GIT_TOKEN') }}\""
+    #       # - username: "\"{{ lookup('env', 'GIT_USERNAME') }}\""
+    #    # survey_spec: "{{ slurpfile['content'] | b64decode }}"
+    #    # survey_enabled: true
