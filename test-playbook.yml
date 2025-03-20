@@ -1,6 +1,6 @@
 ---
 - name: Playbook for testing
-  hosts: localhost
+  hosts: ec2-54-86-58-244.compute-1.amazonaws.com
   gather_facts: false
   
   
